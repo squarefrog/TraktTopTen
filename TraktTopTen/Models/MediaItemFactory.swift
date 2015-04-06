@@ -23,7 +23,7 @@ class MediaItemFactory {
         return mediaItems
     }
     
-    func extractValues(json: JSON) -> (title: String, year: Int, slug: String, banner: String) {
+    private func extractValues(json: JSON) -> (title: String, year: Int, slug: String, banner: String) {
         var title = json["title"].stringValue
         var year = json["year"].intValue
         var slug = json["ids"]["slug"].stringValue

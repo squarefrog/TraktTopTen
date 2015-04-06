@@ -25,8 +25,8 @@ class CollectionViewDataSourceTests: XCTestCase {
         let movieA = Movie(title: "Title", year: 1980, slug: "", banner: "")
         let movieB = Movie(title: "", year: 1980, slug: "", banner: "")
         let items = [movieA, movieB]
-        dataSource = CollectionViewDataSource(items: items)
-        
+        dataSource = CollectionViewDataSource(collectionView: collectionView!)
+        dataSource.updateData(items)
     }
     
     func testNumberOfSectionsInCollectionView() {

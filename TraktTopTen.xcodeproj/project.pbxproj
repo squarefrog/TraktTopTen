@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E1367C11AD2E45000E729B0 /* TraktAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1367C01AD2E45000E729B0 /* TraktAPIManager.swift */; };
 		0E3460681AD07010003A0D06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3460671AD07010003A0D06 /* AppDelegate.swift */; };
 		0E34606A1AD07010003A0D06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3460691AD07010003A0D06 /* ViewController.swift */; };
 		0E34606D1AD07010003A0D06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E34606B1AD07010003A0D06 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E1367C01AD2E45000E729B0 /* TraktAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraktAPIManager.swift; sourceTree = "<group>"; };
 		0E3460621AD07010003A0D06 /* TraktTopTen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TraktTopTen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3460661AD07010003A0D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E3460671AD07010003A0D06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E1367BF1AD2E42300E729B0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0E1367C01AD2E45000E729B0 /* TraktAPIManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		0E3460591AD07010003A0D06 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +141,7 @@
 				0E606BFB1AD19053007C93BE /* Controllers */,
 				0EA2E1EC1AD2BFEB001560BC /* Extensions */,
 				0E3460871AD0702C003A0D06 /* Models */,
+				0E1367BF1AD2E42300E729B0 /* Networking */,
 				0E37CB641AD19F13009543EA /* TestData */,
 				0E606BFD1AD190B9007C93BE /* Views */,
 			);
@@ -473,6 +484,7 @@
 				0E435FA11AD1990900383B50 /* MediaItemFactory.swift in Sources */,
 				0E34606A1AD07010003A0D06 /* ViewController.swift in Sources */,
 				0EC867941AD29DD800BAC0CC /* MediaItemCell.swift in Sources */,
+				0E1367C11AD2E45000E729B0 /* TraktAPIManager.swift in Sources */,
 				0E34608E1AD18E83003A0D06 /* MediaItem.swift in Sources */,
 				0E3460681AD07010003A0D06 /* AppDelegate.swift in Sources */,
 				0E606C001AD19162007C93BE /* Show.swift in Sources */,

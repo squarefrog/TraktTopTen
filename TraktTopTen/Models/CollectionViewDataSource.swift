@@ -11,9 +11,15 @@ import UIKit
 class CollectionViewDataSource : NSObject, UICollectionViewDataSource {
     
     private var items = [MediaItem]()
+    private var collectionView: UICollectionView
     
-    init(items: [MediaItem]) {
-        self.items = items
+    init(collectionView: UICollectionView) {
+        self.collectionView = collectionView
+    }
+    
+    func updateData(items: [MediaItem]) {
+        self.items = items;
+        collectionView.reloadData()
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -20,15 +20,27 @@ class ViewController: UIViewController {
         self.title = "Top Ten Movies"
         collectionView.backgroundColor = UIColor.applicationBackgroundColour()
         
-        if let file = NSBundle(forClass:ViewController.self).pathForResource("popular-movies", ofType: "json") {
-            let data = NSData(contentsOfFile: file)!
-            let items = MediaItemFactory().createMediaItems(data)
-            dataSource = CollectionViewDataSource(items: items)
-            delegate = CollectionViewDelegateFlowLayout()
-            collectionView.dataSource = dataSource!
-            collectionView.delegate = delegate!
+        delegate = CollectionViewDelegateFlowLayout()
+        collectionView.delegate = delegate!
+        
+        dataSource = CollectionViewDataSource(collectionView: collectionView)
+        collectionView.dataSource = dataSource!
+        
+        fetchAndDisplayTopMovies()
+    }
+    
+    func fetchAndDisplayTopMovies() {
+        var data: NSData?
+        var errorString: String?
+        TraktAPIManager().fetchTopMovies { (data, errorString) -> Void in
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                if let unwrappedData: NSData = data {
+                    let array = MediaItemFactory().createMediaItems(unwrappedData)
+                    self.dataSource?.updateData(array)
+                }
+            }
         }
     }
-
 }
 
