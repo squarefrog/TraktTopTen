@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Top Ten Movies"
+        collectionView.backgroundColor = UIColor.applicationBackgroundColour()
+        
         if let file = NSBundle(forClass:ViewController.self).pathForResource("popular-movies", ofType: "json") {
             let data = NSData(contentsOfFile: file)!
             let items = MediaItemFactory().createMediaItems(data)

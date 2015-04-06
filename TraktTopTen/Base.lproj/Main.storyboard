@@ -33,6 +33,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-NV-pUu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                                </imageView>
+                                                <view alpha="0.59999999999999964" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7XE-Q3-E9Q" userLabel="Darken Overlay View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xTd-gU-4JG">
                                                     <rect key="frame" x="0.0" y="70" width="600" height="30"/>
                                                     <subviews>
@@ -43,7 +50,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="y1m-2f-4gs" secondAttribute="trailing" constant="20" id="7FM-oM-HIp"/>
                                                         <constraint firstAttribute="bottom" secondItem="y1m-2f-4gs" secondAttribute="bottom" constant="5" id="hIZ-fS-eq3"/>
@@ -54,19 +61,30 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hVl-NV-pUu" secondAttribute="trailing" id="5dY-8L-pnx"/>
+                                            <constraint firstItem="7XE-Q3-E9Q" firstAttribute="top" secondItem="vod-Wv-gsV" secondAttribute="top" id="Hd8-m2-L6e"/>
+                                            <constraint firstAttribute="trailing" secondItem="7XE-Q3-E9Q" secondAttribute="trailing" id="J1e-8l-BL8"/>
                                             <constraint firstItem="xTd-gU-4JG" firstAttribute="leading" secondItem="vod-Wv-gsV" secondAttribute="leading" id="JUm-h0-bu7"/>
                                             <constraint firstAttribute="bottom" secondItem="xTd-gU-4JG" secondAttribute="bottom" id="P02-45-Eeg"/>
+                                            <constraint firstAttribute="trailing" secondItem="xTd-gU-4JG" secondAttribute="trailing" id="RWk-cj-SCs"/>
+                                            <constraint firstItem="hVl-NV-pUu" firstAttribute="top" secondItem="vod-Wv-gsV" secondAttribute="top" id="gaL-xP-2H5"/>
                                             <constraint firstItem="xTd-gU-4JG" firstAttribute="top" secondItem="vod-Wv-gsV" secondAttribute="topMargin" constant="31" id="gxb-Fv-Mbo"/>
+                                            <constraint firstAttribute="bottom" secondItem="hVl-NV-pUu" secondAttribute="bottom" id="kyb-NI-611"/>
+                                            <constraint firstItem="hVl-NV-pUu" firstAttribute="leading" secondItem="vod-Wv-gsV" secondAttribute="leading" id="m9X-Gg-jbx"/>
+                                            <constraint firstAttribute="bottom" secondItem="7XE-Q3-E9Q" secondAttribute="bottom" id="myB-BJ-krO"/>
                                             <constraint firstAttribute="trailing" secondItem="xTd-gU-4JG" secondAttribute="trailing" id="tss-92-JfT"/>
+                                            <constraint firstItem="7XE-Q3-E9Q" firstAttribute="leading" secondItem="vod-Wv-gsV" secondAttribute="leading" id="z1C-nM-362"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="hVl-NV-pUu" secondAttribute="bottom" id="zy4-CO-eEv"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="zy4-CO-eEv"/>
                                                 <exclude reference="gxb-Fv-Mbo"/>
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <outlet property="imageView" destination="hVl-NV-pUu" id="V2f-DM-jCU"/>
                                             <outlet property="textLabel" destination="y1m-2f-4gs" id="BBB-Nf-Pen"/>
                                         </connections>
                                     </collectionViewCell>

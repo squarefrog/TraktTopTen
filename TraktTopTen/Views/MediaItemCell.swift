@@ -11,5 +11,11 @@ import UIKit
 class MediaItemCell: UICollectionViewCell {
 
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    override func awakeFromNib() {
+        textLabel.font = UIFont(name: "Avenir-Heavy", size: 15.0)!
+        textLabel.textColor = UIColor.applicationLightGrayColour()
+    }
     
 }
