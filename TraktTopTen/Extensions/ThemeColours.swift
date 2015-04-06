@@ -27,7 +27,7 @@ extension UIColor {
     }
     
     class func applicationTextBackgroundColour() -> UIColor {
-        return UIColor.blackColor().colorWithAlphaComponent(0.5)
+        return UIColor.blackColor().colorWithAlphaComponent(0.7)
     }
     
 }

@@ -36,7 +36,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-NV-pUu">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                                 </imageView>
-                                                <view alpha="0.59999999999999964" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7XE-Q3-E9Q" userLabel="Darken Overlay View">
+                                                <view alpha="0.29999999999999966" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7XE-Q3-E9Q" userLabel="Darken Overlay View">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
