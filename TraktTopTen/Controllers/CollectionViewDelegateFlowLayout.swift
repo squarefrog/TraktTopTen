@@ -12,12 +12,17 @@ class CollectionViewDelegateFlowLayout : NSObject, UICollectionViewDelegateFlowL
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let requiredWidth = collectionView.bounds.size.width
-        return CGSizeMake(requiredWidth, 100)
+        let calculatedHeight = requiredWidth * 0.185
+        return CGSizeMake(requiredWidth, calculatedHeight)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         let sectionInsets = UIEdgeInsetsZero
         return sectionInsets
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 10
     }
     
 }
