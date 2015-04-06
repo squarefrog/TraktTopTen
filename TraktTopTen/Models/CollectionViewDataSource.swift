@@ -29,6 +29,8 @@ class CollectionViewDataSource : NSObject, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as MediaItemCell
         let movie = self.items[indexPath.row]
         cell.textLabel.text = "\(movie.title)"
+        let url = NSURL(string: movie.banner)
+        cell.imageView.hnk_setImageFromURL(url)
         
         return cell
     }

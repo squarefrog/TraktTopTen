@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Haneke
 
 class MediaItemCell: UICollectionViewCell {
 
@@ -16,6 +17,11 @@ class MediaItemCell: UICollectionViewCell {
     override func awakeFromNib() {
         textLabel.font = UIFont.mediaCellLabelFont()
         textLabel.textColor = UIColor.applicationLightGrayColour()
+    }
+    
+    override func prepareForReuse() {
+        imageView.hnk_cancelSetImage()
+        imageView.image = nil
     }
     
 }
