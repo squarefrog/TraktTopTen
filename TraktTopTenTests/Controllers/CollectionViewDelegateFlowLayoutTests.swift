@@ -31,18 +31,31 @@ class CollectionViewDelegateFlowLayoutTests: XCTestCase {
         XCTAssert(size == expectedSize, "Delegate should set full width size for cell")
     }
     
-    // FIXME: Gives Ambiguous use of 'collectionView' warning. Why?
-    func DISABLED_testDelegateReturnsMinimumLineSpacing() {
-//        let spacing = delegate.collectionView(collectionView!, layout: layout!, minimumInteritemSpacingForSectionAtIndex: 0)
-//        XCTAssert(spacing == 10, "Delegate should set line spacing")
-    }
-    
     // Well this is ugly...
-    func testsDelegateReturnsZeroInsets() {
-        var insets = delegate.collectionView(collectionView!, layout: layout!, insetForSectionAtIndex: 0)
+    func testDelegateReturnsZeroInsets() {
+        let insets = delegate.collectionView(collectionView!, layout: layout!, insetForSectionAtIndex: 0)
         let insetsString = NSStringFromUIEdgeInsets(insets)
         let expected = NSStringFromUIEdgeInsets(UIEdgeInsetsZero)
         XCTAssertEqual(insetsString, expected, "Delegate should set content insets")
     }
+    
+    func testDelegateReturnsMinimumLineSpacing() {
+        let lineSpacing = delegate.collectionView(collectionView!, layout: layout!, minimumLineSpacingForSectionAtIndex: 0)
+        XCTAssert(lineSpacing == delegate.spacing, "Delegate should return line spacing")
+    }
+    
+    func testDelegateReturnsHeaderSize() {
+        let expected = CGSizeMake(0, delegate.spacing)
+        let size = delegate.collectionView(collectionView!, layout: layout!, referenceSizeForHeaderInSection: 0)
+        
+        XCTAssert(size == expected, "Delegate should return a header size")
+    }
 
+    func testDelegateReturnsFooterSize() {
+        let expected = CGSizeMake(0, delegate.spacing)
+        let size = delegate.collectionView(collectionView!, layout: layout!, referenceSizeForFooterInSection: 0)
+        
+        XCTAssert(size == expected, "Delegate should return a footer size")
+    }
+    
 }

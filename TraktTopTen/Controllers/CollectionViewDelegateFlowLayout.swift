@@ -10,6 +10,8 @@ import UIKit
 
 class CollectionViewDelegateFlowLayout : NSObject, UICollectionViewDelegateFlowLayout {
     
+    let spacing:CGFloat = 10.0
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let requiredWidth = collectionView.bounds.size.width
         let calculatedHeight = requiredWidth * 0.185
@@ -22,7 +24,15 @@ class CollectionViewDelegateFlowLayout : NSObject, UICollectionViewDelegateFlowL
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 10
+        return spacing
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSizeMake(0, spacing)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSizeMake(0, spacing)
     }
     
 }
