@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.translucent = false
         
         let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.applicationWhiteColour(),
-            NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 19)!]
+            NSFontAttributeName: UIFont.applicationNavigatorBarFont()]
         navigationBarAppearace.titleTextAttributes = titleDict
         
         return true
