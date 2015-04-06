@@ -21,9 +21,12 @@ class CollectionViewDataSourceTests: XCTestCase {
         let size = CGRect(x: 0, y: 0, width: 100, height: 100)
         collectionView = UICollectionView(frame: size, collectionViewLayout: layout)
         
-        let movie = Movie(title: "", year: 1980, slug: "", banner: "")
-        let items = [movie]
+        
+        let movieA = Movie(title: "Title", year: 1980, slug: "", banner: "")
+        let movieB = Movie(title: "", year: 1980, slug: "", banner: "")
+        let items = [movieA, movieB]
         dataSource = CollectionViewDataSource(items: items)
+        
     }
     
     func testNumberOfSectionsInCollectionView() {
@@ -33,7 +36,18 @@ class CollectionViewDataSourceTests: XCTestCase {
     
     func testNumberOfItemsInSection() {
         let items = dataSource.collectionView(collectionView!, numberOfItemsInSection: 0)
-        XCTAssert(items == 1, "Data source should return 1 items")
+        XCTAssert(items == 2, "Data source should return 2 items")
+    }
+    
+    // This crashes when attempting to dequeue a cell. It's as if the collection
+    // view never registers the class properly
+    func DISABLED_testDataSourceReturnsACell() {
+        let indexPath = NSIndexPath(forItem: 0, inSection: 0)
+        
+        collectionView!.registerClass(MediaItemCell.self, forCellWithReuseIdentifier: "Cell")
+        let cell = dataSource.collectionView(collectionView!, cellForItemAtIndexPath: indexPath) as MediaItemCell
+        XCTAssert(cell.textLabel.text == "The Shawshank Redemption", "Data source should set cell text")
+        
     }
 
 }

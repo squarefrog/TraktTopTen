@@ -10,16 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    var dataSource: CollectionViewDataSource?
+    var delegate: CollectionViewDelegateFlowLayout?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if let file = NSBundle(forClass:ViewController.self).pathForResource("popular-movies", ofType: "json") {
+            let data = NSData(contentsOfFile: file)!
+            let items = MediaItemFactory().createMediaItems(data)
+            dataSource = CollectionViewDataSource(items: items)
+            delegate = CollectionViewDelegateFlowLayout()
+            collectionView.dataSource = dataSource!
+            collectionView.delegate = delegate!
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

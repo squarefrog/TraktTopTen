@@ -11,22 +11,24 @@ import XCTest
 
 class MediaItemFactoryTests: XCTestCase {
     
-    let itemTitle = "The Shawshank Redemption"
-    let itemYear = 1994
-    let itemSlug = "the-shawshank-redemption-1994"
-    let itemBanner = "https://walter.trakt.us/images/movies/000/000/234/banners/original/fce1409e26.jpg"
-
     func testCreatingMediaItemFromJSONData() {
         if let file = NSBundle(forClass:MediaItemFactoryTests.self).pathForResource("popular-movies", ofType: "json") {
             let data = NSData(contentsOfFile: file)!
             let items = MediaItemFactory().createMediaItems(data)
-            XCTAssert(items.count == 1, "Method should return a single result")
+            XCTAssert(items.count == 10, "Method should return the correct amout of results")
             
-            let item = items.first!
-            XCTAssert(item.title == itemTitle, "Item title not set")
-            XCTAssert(item.year == itemYear, "Item year not set")
-            XCTAssert(item.slug == itemSlug, "Item slug not set")
-            XCTAssert(item.banner == itemBanner, "Item banner not set")
+            let firstItem = items.first!
+            XCTAssert(firstItem.title == "The Shawshank Redemption", "Item title not set")
+            XCTAssert(firstItem.year == 1994, "Item year not set")
+            XCTAssert(firstItem.slug == "the-shawshank-redemption-1994", "Item slug not set")
+            XCTAssert(firstItem.banner == "https://walter.trakt.us/images/movies/000/000/234/banners/original/fce1409e26.jpg", "Item banner not set")
+            
+            let secondItem = items[1]
+            
+            XCTAssert(secondItem.title == "Goodfellas", "Item title not set")
+            XCTAssert(secondItem.year == 1990, "Item year not set")
+            XCTAssert(secondItem.slug == "goodfellas-1990", "Item slug not set")
+            XCTAssert(secondItem.banner == "https://walter.trakt.us/images/movies/000/000/612/banners/original/5b958b1255.jpg", "Item banner not set")
         } else {
             XCTFail("JSON file could not be loaded")
         }

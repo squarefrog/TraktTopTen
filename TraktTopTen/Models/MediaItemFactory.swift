@@ -16,7 +16,7 @@ class MediaItemFactory {
         let json = JSON(data:data)
         
         for (index: String, subJson: JSON) in json {
-            let item = MediaItem(extractValues(subJson))
+            var item = MediaItem(extractValues(subJson))
             mediaItems.append(item)
         }
         
@@ -24,10 +24,10 @@ class MediaItemFactory {
     }
     
     func extractValues(json: JSON) -> (title: String, year: Int, slug: String, banner: String) {
-        let title = json["title"].stringValue
-        let year = json["year"].intValue
-        let slug = json["ids"]["slug"].stringValue
-        let banner = json["images"]["banner"]["full"].stringValue
+        var title = json["title"].stringValue
+        var year = json["year"].intValue
+        var slug = json["ids"]["slug"].stringValue
+        var banner = json["images"]["banner"]["full"].stringValue
         
         return (title, year, slug, banner)
     }

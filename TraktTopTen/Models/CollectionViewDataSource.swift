@@ -10,22 +10,27 @@ import UIKit
 
 class CollectionViewDataSource : NSObject, UICollectionViewDataSource {
     
-    private var items = [Movie]()
+    private var items = [MediaItem]()
     
-    init(items: [Movie]) {
+    init(items: [MediaItem]) {
         self.items = items
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return self.items.count
     }
     
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as MediaItemCell
+        let movie = self.items[indexPath.row]
+        cell.textLabel.text = "\(movie.title)"
+        
+        return cell
     }
     
 }
