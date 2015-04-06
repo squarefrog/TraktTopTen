@@ -13,10 +13,12 @@ class MediaItemCell: UICollectionViewCell {
 
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var labelBackgroundView: UIView!
     
     override func awakeFromNib() {
         textLabel.font = UIFont.mediaCellLabelFont()
         textLabel.textColor = UIColor.applicationLightGrayColour()
+        labelBackgroundView.backgroundColor = UIColor.applicationTextBackgroundColour()
     }
     
     override func prepareForReuse() {

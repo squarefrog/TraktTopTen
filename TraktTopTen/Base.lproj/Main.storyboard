@@ -50,7 +50,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="y1m-2f-4gs" secondAttribute="trailing" constant="20" id="7FM-oM-HIp"/>
                                                         <constraint firstAttribute="bottom" secondItem="y1m-2f-4gs" secondAttribute="bottom" constant="5" id="hIZ-fS-eq3"/>
@@ -85,6 +85,7 @@
                                         </variation>
                                         <connections>
                                             <outlet property="imageView" destination="hVl-NV-pUu" id="V2f-DM-jCU"/>
+                                            <outlet property="labelBackgroundView" destination="xTd-gU-4JG" id="tAj-ZM-5MK"/>
                                             <outlet property="textLabel" destination="y1m-2f-4gs" id="BBB-Nf-Pen"/>
                                         </connections>
                                     </collectionViewCell>

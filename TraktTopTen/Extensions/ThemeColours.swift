@@ -15,7 +15,7 @@ extension UIColor {
     }
     
     class func applicationBackgroundColour() -> UIColor {
-        return UIColor(red:0.34, green:0.34, blue:0.34, alpha:1)
+        return UIColor(red:0.14, green:0.14, blue:0.14, alpha:1)
     }
     
     class func applicationWhiteColour() -> UIColor {
@@ -24,6 +24,10 @@ extension UIColor {
     
     class func applicationLightGrayColour() -> UIColor {
         return UIColor(red:0.85, green:0.85, blue:0.85, alpha:1)
+    }
+    
+    class func applicationTextBackgroundColour() -> UIColor {
+        return UIColor.blackColor().colorWithAlphaComponent(0.5)
     }
     
 }
