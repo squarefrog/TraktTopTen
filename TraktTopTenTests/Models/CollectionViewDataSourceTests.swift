@@ -39,10 +39,10 @@ class CollectionViewDataSourceTests: XCTestCase {
         XCTAssert(items == 2, "Data source should return 2 items")
     }
     
-    // This crashes when attempting to dequeue a cell. It's as if the collection
-    // view never registers the class properly
-    func DISABLED_testDataSourceReturnsACell() {
+    func testDataSourceReturnsACell() {
         let indexPath = NSIndexPath(forItem: 0, inSection: 0)
+        collectionView!.dataSource = dataSource
+        collectionView!.registerClass(MediaItemCell.self, forCellWithReuseIdentifier: "Cell")
         
         collectionView!.registerClass(MediaItemCell.self, forCellWithReuseIdentifier: "Cell")
         let cell = dataSource.collectionView(collectionView!, cellForItemAtIndexPath: indexPath) as MediaItemCell
