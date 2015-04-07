@@ -80,7 +80,7 @@
 		0EC8678A1AD1C28C00BAC0CC /* CollectionViewDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSourceTests.swift; sourceTree = "<group>"; };
 		0EC8678D1AD28B8A00BAC0CC /* CollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegateFlowLayout.swift; sourceTree = "<group>"; };
 		0EC867901AD28FB400BAC0CC /* CollectionViewDelegateFlowLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegateFlowLayoutTests.swift; sourceTree = "<group>"; };
-		0EC867931AD29DD800BAC0CC /* MediaItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaItemCell.swift; path = Views/MediaItemCell.swift; sourceTree = "<group>"; };
+		0EC867931AD29DD800BAC0CC /* MediaItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItemCell.swift; sourceTree = "<group>"; };
 		7911C0DEA5DDD378A863478D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		873CEAD32C41D1CAAE17F0F5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C7AE3A9145CEA1AB2B4527 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 				0E34606B1AD07010003A0D06 /* Main.storyboard */,
 				0EC867931AD29DD800BAC0CC /* MediaItemCell.swift */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0E606BFE1AD190FB007C93BE /* App */ = {
@@ -534,6 +534,7 @@
 				0E34606C1AD07010003A0D06 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		0E3460701AD07010003A0D06 /* LaunchScreen.xib */ = {
@@ -542,6 +543,7 @@
 				0E3460711AD07010003A0D06 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
