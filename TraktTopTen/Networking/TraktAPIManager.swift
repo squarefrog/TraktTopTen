@@ -9,11 +9,9 @@
 import Foundation
 
 let UrlString = "https://api-v2launch.trakt.tv/movies/popular?extended=images&page=1&limit=10"
-let TraktAPIKey = "YOUR-API-KEY"
 
 class TraktAPIManager {
     func fetchTopMovies(callback: (NSData?, String?) -> Void) {
-        assert(TraktAPIKey != "YOUR-API-KEY", "Add your API key above")
         
         let url = NSURL(string: UrlString)!
         let request = topMoviesURLRequest(url)
@@ -35,7 +33,6 @@ class TraktAPIManager {
         var request = NSMutableURLRequest(URL: url)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("2", forHTTPHeaderField: "trakt-api-version")
-        request.addValue(TraktAPIKey, forHTTPHeaderField: "trakt-api-key")
         return request
     }
 }
