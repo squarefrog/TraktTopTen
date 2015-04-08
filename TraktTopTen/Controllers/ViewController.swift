@@ -18,15 +18,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Top Ten Movies"
-        collectionView.backgroundColor = UIColor.applicationBackgroundColour()
         
+        setupCollectionView()
+        fetchAndDisplayTopMovies()
+    }
+    
+    func setupCollectionView() {
         delegate = CollectionViewDelegateFlowLayout()
         collectionView.delegate = delegate!
         
         dataSource = CollectionViewDataSource(collectionView: collectionView)
         collectionView.dataSource = dataSource!
         
-        fetchAndDisplayTopMovies()
+        collectionView.backgroundColor = UIColor.applicationBackgroundColour()
     }
     
     func fetchAndDisplayTopMovies() {
@@ -37,7 +41,12 @@ class ViewController: UIViewController {
             dispatch_async(dispatch_get_main_queue()) {
                 if let unwrappedData: NSData = data {
                     let array = MediaItemFactory().createMediaItems(unwrappedData)
+                    if let ds = self.dataSource {
+                        ds.updateData(array)
+                    }
                     self.dataSource?.updateData(array)
+                } else if let error = errorString {
+                    println("\(error)")
                 }
             }
         }
