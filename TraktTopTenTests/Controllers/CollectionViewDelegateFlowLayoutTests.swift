@@ -24,10 +24,11 @@ class CollectionViewDelegateFlowLayoutTests: XCTestCase {
     }
 
     func testDelegateReturnsFullWidthCellSize() {
+        let indexPath = NSIndexPath(forItem: 0, inSection: 0)
+        
+        let size = delegate.collectionView(collectionView!, layout: layout!, sizeForItemAtIndexPath: indexPath)
         
         let expectedSize = CGSizeMake(collectionViewSize.width, collectionViewSize.width * 0.185)
-        let indexPath = NSIndexPath(forItem: 0, inSection: 0)
-        let size = delegate.collectionView(collectionView!, layout: layout!, sizeForItemAtIndexPath: indexPath)
         XCTAssert(size == expectedSize, "Delegate should set full width size for cell")
     }
     
