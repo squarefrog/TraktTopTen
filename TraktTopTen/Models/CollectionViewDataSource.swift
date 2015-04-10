@@ -32,7 +32,7 @@ class CollectionViewDataSource : NSObject, UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as MediaItemCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! MediaItemCell
         let movie = self.items[indexPath.row]
         cell.textLabel.text = "\(movie.title)"
         

@@ -18,7 +18,7 @@ class TraktAPIManager {
         var session = NSURLSession.sharedSession()
         var task = session.dataTaskWithRequest(request) {
             (data, response, error) -> Void in
-            let httpResponse = response as NSHTTPURLResponse
+            let httpResponse = response as! NSHTTPURLResponse
             
             if error != nil {
                 callback(nil, "Error \(httpResponse): \(error.localizedDescription)")

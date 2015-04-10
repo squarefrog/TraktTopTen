@@ -21,10 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.tintColor = UIColor.applicationWhiteColour()
         navigationBarAppearace.barTintColor = UIColor.applicationMainThemeColor()
         navigationBarAppearace.translucent = false
-        
-        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.applicationWhiteColour(),
+        let attributes = [NSForegroundColorAttributeName: UIColor.applicationWhiteColour(),
             NSFontAttributeName: UIFont.applicationNavigatorBarFont()]
-        navigationBarAppearace.titleTextAttributes = titleDict
+        navigationBarAppearace.titleTextAttributes = attributes
         
         return true
     }

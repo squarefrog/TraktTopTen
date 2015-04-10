@@ -42,7 +42,7 @@ class CollectionViewDataSourceTests: XCTestCase {
             forCellWithReuseIdentifier: "Cell")
         
         let indexPath = NSIndexPath(forItem: 0, inSection: 0)
-        let cell = dataSource.collectionView(collectionView!, cellForItemAtIndexPath: indexPath) as MediaItemCell
+        let cell = dataSource.collectionView(collectionView!, cellForItemAtIndexPath: indexPath) as! MediaItemCell
         
         XCTAssert(cell.textLabel.text == "The Shawshank Redemption", "Data source should set cell text")
     }
