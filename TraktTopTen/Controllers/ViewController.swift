@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var dataSource: CollectionViewDataSource?
     var delegate: CollectionViewDelegateFlowLayout?
+    var activityIndicator: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,35 @@ class ViewController: UIViewController {
         
         setupCollectionView()
         fetchAndDisplayTopMovies()
+        showActivityIndicatorView()
+    }
+    
+    func showActivityIndicatorView() {
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        activityIndicator?.startAnimating()
+        activityIndicator?.color = UIColor.applicationLightGrayColour()
+        activityIndicator?.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(activityIndicator!)
+        
+        let centerX = NSLayoutConstraint(
+            item: activityIndicator!,
+            attribute: .CenterX,
+            relatedBy: .Equal,
+            toItem: self.view,
+            attribute: .CenterX,
+            multiplier: 1.0,
+            constant: 0.0)
+
+        let centerY = NSLayoutConstraint(
+            item: activityIndicator!,
+            attribute: .CenterY,
+            relatedBy: .Equal,
+            toItem: self.view,
+            attribute: .CenterY,
+            multiplier: 1.0,
+            constant: 0.0)
+        
+        self.view.addConstraints([centerX, centerY])
     }
     
     func setupCollectionView() {
@@ -36,15 +66,17 @@ class ViewController: UIViewController {
     func fetchAndDisplayTopMovies() {
         var data: NSData?
         var errorString: String?
+        let application = UIApplication.sharedApplication()
+        application.networkActivityIndicatorVisible = true
+        
         TraktAPIManager().fetchTopMovies { (data, errorString) -> Void in
+            application.networkActivityIndicatorVisible = false
             
             dispatch_async(dispatch_get_main_queue()) {
                 if let unwrappedData: NSData = data {
                     let array = MediaItemFactory().createMediaItems(unwrappedData)
-                    if let ds = self.dataSource {
-                        ds.updateData(array)
-                    }
                     self.dataSource?.updateData(array)
+                    self.activityIndicator?.removeFromSuperview()
                 } else if let error = errorString {
                     println("\(error)")
                 }
