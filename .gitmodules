@@ -1,0 +1,3 @@
+[submodule "submodules/ios-snapshot-test-case"]
+	path = submodules/ios-snapshot-test-case
+	url = https://github.com/facebook/ios-snapshot-test-case.git
