@@ -18,4 +18,16 @@ extension UIFont {
         return UIFont(name: "Avenir-Heavy", size: 15.0)!
     }
     
+    class func mediaTaglineFont() -> UIFont {
+        return UIFont(name: "Avenir-Light", size: 16.0)!
+    }
+    
+    class func mediaSynopsisFont() -> UIFont {
+        return UIFont(name: "Avenir-LightOblique", size: 16.0)!
+    }
+    
+    class func mediaMetaDataFont() -> UIFont {
+        return UIFont(name: "Avenir-Light", size: 15.0)!
+    }
+    
 }

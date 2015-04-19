@@ -37,6 +37,8 @@
 		0EC867921AD2907400BAC0CC /* CollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC8678D1AD28B8A00BAC0CC /* CollectionViewDelegateFlowLayout.swift */; };
 		0EC867941AD29DD800BAC0CC /* MediaItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC867931AD29DD800BAC0CC /* MediaItemCell.swift */; };
 		0EC867951AD29E2400BAC0CC /* MediaItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC867931AD29DD800BAC0CC /* MediaItemCell.swift */; };
+		0EE9C0F41ADC460000E7337E /* MediaItemDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EE9C0F31ADC460000E7337E /* MediaItemDetailsView.xib */; };
+		0EE9C0F61ADC4F9B00E7337E /* MediaItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE9C0F51ADC4F9B00E7337E /* MediaItemDetailsView.swift */; };
 		1F6FA262C8FBF08A12D3B1C9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 873CEAD32C41D1CAAE17F0F5 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B8E92F8704E400FF703BEEB4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 873CEAD32C41D1CAAE17F0F5 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -77,6 +79,8 @@
 		0EC8678D1AD28B8A00BAC0CC /* CollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegateFlowLayout.swift; sourceTree = "<group>"; };
 		0EC867901AD28FB400BAC0CC /* CollectionViewDelegateFlowLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegateFlowLayoutTests.swift; sourceTree = "<group>"; };
 		0EC867931AD29DD800BAC0CC /* MediaItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItemCell.swift; sourceTree = "<group>"; };
+		0EE9C0F31ADC460000E7337E /* MediaItemDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaItemDetailsView.xib; sourceTree = "<group>"; };
+		0EE9C0F51ADC4F9B00E7337E /* MediaItemDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItemDetailsView.swift; sourceTree = "<group>"; };
 		7911C0DEA5DDD378A863478D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		873CEAD32C41D1CAAE17F0F5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C7AE3A9145CEA1AB2B4527 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				0E3460701AD07010003A0D06 /* LaunchScreen.xib */,
 				0E34606B1AD07010003A0D06 /* Main.storyboard */,
 				0EC867931AD29DD800BAC0CC /* MediaItemCell.swift */,
+				0EE9C0F31ADC460000E7337E /* MediaItemDetailsView.xib */,
+				0EE9C0F51ADC4F9B00E7337E /* MediaItemDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E34606D1AD07010003A0D06 /* Main.storyboard in Resources */,
+				0EE9C0F41ADC460000E7337E /* MediaItemDetailsView.xib in Resources */,
 				0E3460721AD07010003A0D06 /* LaunchScreen.xib in Resources */,
 				0E34606F1AD07010003A0D06 /* Images.xcassets in Resources */,
 			);
@@ -480,6 +487,7 @@
 				0E34608E1AD18E83003A0D06 /* MediaItem.swift in Sources */,
 				0E3460681AD07010003A0D06 /* AppDelegate.swift in Sources */,
 				0E606C001AD19162007C93BE /* Show.swift in Sources */,
+				0EE9C0F61ADC4F9B00E7337E /* MediaItemDetailsView.swift in Sources */,
 				0E3460891AD07054003A0D06 /* Movie.swift in Sources */,
 				0EC8678E1AD28B8A00BAC0CC /* CollectionViewDelegateFlowLayout.swift in Sources */,
 				0EA2E1F21AD2C70B001560BC /* ThemeFonts.swift in Sources */,
