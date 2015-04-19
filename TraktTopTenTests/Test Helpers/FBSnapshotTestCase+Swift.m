@@ -7,16 +7,17 @@
 //
 
 #import "FBSnapshotTestCase+Swift.h"
-//
-//#ifndef FB_REFERENCE_IMAGE_DIR
-//#define FB_REFERENCE_IMAGE_DIR="\"$(SOURCE_ROOT)/$(PROJECT_NAME)Tests/ReferenceImages\""
-//#endif
 
 @implementation FBSnapshotTestCase (Swift)
 
 - (void)snapshotVerifyView:(UIView *)view withIdentifier:(NSString *)identifier
 {
     FBSnapshotVerifyView(view, identifier);
+}
+
+- (void)snapshotVerifyLayer:(CALayer *)layer withIdentifier:(NSString *)identifier
+{
+    FBSnapshotVerifyLayer(layer, identifier);
 }
 
 @end

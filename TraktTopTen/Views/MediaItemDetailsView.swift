@@ -24,6 +24,15 @@ class MediaItemsDetailsView : UIView {
     override func awakeFromNib() {
         styleMetaDataLabels()
         styleTitleLabels()
+        addBlur()
+    }
+    
+    private func addBlur() {
+        let blurEffect = UIBlurEffect(style: .Dark)
+        let visualEffect = UIVisualEffectView(effect: blurEffect)
+        visualEffect.frame = self.frame
+        
+        self.addSubview(visualEffect)
     }
     
     private func styleTaglineLabel() {

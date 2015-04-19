@@ -11,5 +11,6 @@
 @interface FBSnapshotTestCase (Swift)
 
 - (void)snapshotVerifyView:(UIView *)view withIdentifier:(NSString *)identifier;
+- (void)snapshotVerifyLayer:(CALayer *)layer withIdentifier:(NSString *)identifier;
 
 @end
