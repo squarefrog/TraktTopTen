@@ -8,8 +8,12 @@ TraktTopTen is a sample Swift app that downloads the 10 most popular movies from
 
 # Running the app
 
-Clone the repo, then run the following in the root of the project (requires [CocoaPods](https://cocoapods.org))
+Clone the repo:
 
-    $ pod install
+    $ git clone --recursive https://github.com/squarefrog/TraktTopTen.git
+
+Install dependencies (requires [CocoaPods](https://cocoapods.org))
+
+    $ cd TraktTopTen && pod install
 
 Then open up the TraktTopTen.xcworkspace.
