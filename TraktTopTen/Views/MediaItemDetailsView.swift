@@ -40,7 +40,7 @@ class MediaItemsDetailsView : UIView {
     }
     
     private func styleSynopsisBackgroundView() {
-        synopsisBackgroundView.backgroundColor = UIColor(white: 0.0, alpha: 0.1)
+        synopsisBackgroundView.backgroundColor = UIColor.clearColor()
     }
     
     private func styleMetaDataLabels() {
