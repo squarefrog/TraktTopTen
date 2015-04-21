@@ -12,13 +12,13 @@ class MediaItemDetailViewTests: FBSnapshotTestCase {
     
     override func setUp() {
         super.setUp()
-        recordMode = true
+        recordMode = false
     }
     
     func testViewLooksCorrect() {
         if let view = NSBundle.mainBundle().loadNibNamed("MediaItemDetailsView", owner: self, options: nil)[0] as? UIView {
             
-            view.frame = CGRect(x: 0, y: 275, width: 375, height: 392)
+            view.setTranslatesAutoresizingMaskIntoConstraints(false)
             
             let parentView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 667))
             let bundle = NSBundle(forClass: MediaItemDetailViewTests.self)
@@ -28,9 +28,40 @@ class MediaItemDetailViewTests: FBSnapshotTestCase {
             parentView.addSubview(imageView)
             parentView.addSubview(view)
             
+            let leading = NSLayoutConstraint(
+                item: view,
+                attribute: .Leading,
+                relatedBy: .Equal,
+                toItem: parentView,
+                attribute: .Leading,
+                multiplier: 1.0,
+                constant: 0)
+            
+            let trailing = NSLayoutConstraint(
+                item: view,
+                attribute: .Trailing,
+                relatedBy: .Equal,
+                toItem: parentView,
+                attribute: .Trailing,
+                multiplier: 1.0,
+                constant: 0)
+            
+            let bottom = NSLayoutConstraint(
+                item: view,
+                attribute: .Bottom,
+                relatedBy: .Equal,
+                toItem: parentView,
+                attribute: .Bottom,
+                multiplier: 1.0,
+                constant: 0)
+            
+            parentView.addConstraints([leading,trailing,bottom])
+            
             // Currently fails to render the blur effect
             snapshotVerifyView(parentView, withIdentifier: nil)
             
+        } else {
+            XCTFail("Failed to load MediaItemDetailsView.xib")
         }
     }
     

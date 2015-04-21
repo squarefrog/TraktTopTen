@@ -22,25 +22,21 @@ class MediaItemsDetailsView : UIView {
     @IBOutlet var metaDataLabels: Array<UILabel>!
     
     override func awakeFromNib() {
+        styleTaglineLabel()
+        styleSynopsisLabel()
+        styleSynopsisBackgroundView()
         styleMetaDataLabels()
         styleTitleLabels()
-        addBlur()
-    }
-    
-    private func addBlur() {
-        let blurEffect = UIBlurEffect(style: .Dark)
-        let visualEffect = UIVisualEffectView(effect: blurEffect)
-        visualEffect.frame = self.frame
-        
-        self.addSubview(visualEffect)
     }
     
     private func styleTaglineLabel() {
-        
+        taglineLabel.textColor = UIColor.applicationWhiteColour()
+        taglineLabel.font = UIFont.mediaTaglineFont()
     }
     
     private func styleSynopsisLabel() {
-        
+        synopsisLabel.textColor = UIColor.applicationWhiteColour()
+        synopsisLabel.font = UIFont.mediaSynopsisFont()
     }
     
     private func styleSynopsisBackgroundView() {
@@ -48,16 +44,18 @@ class MediaItemsDetailsView : UIView {
     }
     
     private func styleMetaDataLabels() {
-        for label in titleLabels {
-            label.textColor = UIColor.applicationWhiteColour()
+        for label in metaDataLabels {
             label.font = UIFont.mediaMetaDataFont()
+            label.textColor = UIColor.applicationWhiteColour()
         }
     }
     
     private func styleTitleLabels() {
         for label in titleLabels {
+            label.font = UIFont.mediaMetaDataFont()
             label.textAlignment = .Right
             label.alpha = 0.5;
+            label.textColor = UIColor.applicationWhiteColour()
         }
     }
 }

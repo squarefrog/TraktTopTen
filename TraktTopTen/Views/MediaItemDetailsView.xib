@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -7,16 +7,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MediaItemsDetailsView" customModule="TraktTopTen" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="391"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IbA-8v-3AY">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="391"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="f9v-OT-x3W">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="391"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
-                    <blurEffect style="light"/>
+                    <blurEffect style="dark"/>
                 </visualEffectView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;THE GAME HAS CHANGED.&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZD-eY-ROZ">
                     <rect key="frame" x="30" y="30" width="540" height="21"/>
@@ -24,7 +24,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujb-No-pLB">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujb-No-pLB">
                     <rect key="frame" x="0.0" y="81" width="600" height="142"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFE-vd-oEw">
@@ -35,7 +35,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.85099999999999998" green="0.85099999999999998" blue="0.85099999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="xFE-vd-oEw" secondAttribute="trailing" constant="30" id="EL1-ac-xo2"/>
                         <constraint firstItem="xFE-vd-oEw" firstAttribute="leading" secondItem="ujb-No-pLB" secondAttribute="leading" constant="30" id="fAX-Iv-iVh"/>
@@ -102,37 +102,28 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="3Hy-C0-GIv" secondAttribute="trailing" constant="30" id="3eD-HT-I5H"/>
-                <constraint firstItem="4PP-aw-fze" firstAttribute="leading" secondItem="WQy-jU-Bzq" secondAttribute="leading" id="4XZ-cB-sq1"/>
+                <constraint firstAttribute="bottom" secondItem="BmB-yk-qYO" secondAttribute="bottom" constant="30" id="4bA-zC-YiV"/>
                 <constraint firstItem="IbA-8v-3AY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4dF-kz-3lA"/>
                 <constraint firstItem="pPC-Ke-TaW" firstAttribute="leading" secondItem="4PP-aw-fze" secondAttribute="trailing" constant="8" id="6hF-yg-84Q"/>
                 <constraint firstAttribute="trailing" secondItem="ujb-No-pLB" secondAttribute="trailing" id="6yG-VP-egl"/>
-                <constraint firstItem="4PP-aw-fze" firstAttribute="leading" secondItem="WQy-jU-Bzq" secondAttribute="trailing" constant="-97" id="A3t-5a-ilC"/>
-                <constraint firstItem="WQy-jU-Bzq" firstAttribute="centerY" secondItem="3Hy-C0-GIv" secondAttribute="centerY" id="EqD-MM-4cJ"/>
                 <constraint firstItem="F0E-6f-JqU" firstAttribute="centerY" secondItem="Bge-dj-86t" secondAttribute="centerY" id="HbJ-lk-swD"/>
                 <constraint firstItem="4PP-aw-fze" firstAttribute="trailing" secondItem="BmB-yk-qYO" secondAttribute="trailing" id="IHm-dA-OjE"/>
                 <constraint firstItem="ujb-No-pLB" firstAttribute="top" secondItem="6ZD-eY-ROZ" secondAttribute="bottom" constant="30" id="JZC-5J-sDa"/>
                 <constraint firstItem="6ZD-eY-ROZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="Jdc-7B-iIf"/>
-                <constraint firstItem="BmB-yk-qYO" firstAttribute="leading" secondItem="4PP-aw-fze" secondAttribute="leading" id="K4M-aT-1XG"/>
                 <constraint firstItem="4PP-aw-fze" firstAttribute="top" secondItem="WQy-jU-Bzq" secondAttribute="bottom" constant="8" id="LKk-n8-k7U"/>
                 <constraint firstAttribute="trailing" secondItem="IbA-8v-3AY" secondAttribute="trailing" id="Mir-3L-x5w"/>
                 <constraint firstAttribute="bottom" secondItem="IbA-8v-3AY" secondAttribute="bottom" id="MkC-Q9-taI"/>
                 <constraint firstItem="WQy-jU-Bzq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="Mxy-lu-l0O"/>
                 <constraint firstItem="WQy-jU-Bzq" firstAttribute="top" secondItem="Bge-dj-86t" secondAttribute="bottom" constant="8" id="PHg-Pl-Juk"/>
-                <constraint firstItem="BmB-yk-qYO" firstAttribute="leading" secondItem="4PP-aw-fze" secondAttribute="trailing" constant="-97" id="QIW-6B-H0n"/>
                 <constraint firstItem="Bge-dj-86t" firstAttribute="width" secondItem="WQy-jU-Bzq" secondAttribute="width" id="QOb-Kj-WcT"/>
                 <constraint firstItem="4PP-aw-fze" firstAttribute="centerY" secondItem="pPC-Ke-TaW" secondAttribute="centerY" id="QOt-Mp-g1g"/>
                 <constraint firstItem="6ZD-eY-ROZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="S5x-VH-4ds"/>
                 <constraint firstItem="Bge-dj-86t" firstAttribute="trailing" secondItem="WQy-jU-Bzq" secondAttribute="trailing" id="Sv0-dm-kAO"/>
-                <constraint firstItem="Bge-dj-86t" firstAttribute="leading" secondItem="WQy-jU-Bzq" secondAttribute="leading" id="UcQ-qz-5F8"/>
                 <constraint firstItem="BmB-yk-qYO" firstAttribute="top" secondItem="4PP-aw-fze" secondAttribute="bottom" constant="8" id="X6P-Gf-Jb7"/>
                 <constraint firstItem="IbA-8v-3AY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Xkp-bI-BfN"/>
                 <constraint firstItem="LJJ-BA-PKy" firstAttribute="leading" secondItem="BmB-yk-qYO" secondAttribute="trailing" constant="8" id="ZID-l6-hNg"/>
                 <constraint firstItem="BmB-yk-qYO" firstAttribute="centerY" secondItem="LJJ-BA-PKy" secondAttribute="centerY" id="cWr-Ld-K8Y"/>
-                <constraint firstAttribute="trailing" secondItem="LJJ-BA-PKy" secondAttribute="trailing" constant="30" id="dCE-z7-bFJ"/>
                 <constraint firstItem="BmB-yk-qYO" firstAttribute="width" secondItem="4PP-aw-fze" secondAttribute="width" id="dfM-1L-gE2"/>
-                <constraint firstAttribute="trailing" secondItem="pPC-Ke-TaW" secondAttribute="trailing" constant="30" id="g2D-FC-ohn"/>
-                <constraint firstAttribute="trailing" secondItem="F0E-6f-JqU" secondAttribute="trailing" constant="30" id="j6G-Al-mt2"/>
                 <constraint firstItem="3Hy-C0-GIv" firstAttribute="leading" secondItem="WQy-jU-Bzq" secondAttribute="trailing" constant="8" id="lcs-JC-uwT"/>
                 <constraint firstItem="Bge-dj-86t" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="mf6-Ck-X1V"/>
                 <constraint firstItem="WQy-jU-Bzq" firstAttribute="centerY" secondItem="3Hy-C0-GIv" secondAttribute="centerY" id="omF-5y-mhB"/>
@@ -145,20 +136,6 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="UcQ-qz-5F8"/>
-                    <exclude reference="j6G-Al-mt2"/>
-                    <exclude reference="EqD-MM-4cJ"/>
-                    <exclude reference="3eD-HT-I5H"/>
-                    <exclude reference="4XZ-cB-sq1"/>
-                    <exclude reference="A3t-5a-ilC"/>
-                    <exclude reference="g2D-FC-ohn"/>
-                    <exclude reference="K4M-aT-1XG"/>
-                    <exclude reference="QIW-6B-H0n"/>
-                    <exclude reference="dCE-z7-bFJ"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="genresLabel" destination="pPC-Ke-TaW" id="Xcy-8a-aYT"/>
                 <outlet property="ratingLabel" destination="LJJ-BA-PKy" id="UaT-1g-xY5"/>
@@ -167,20 +144,21 @@
                 <outlet property="synopsisLabel" destination="xFE-vd-oEw" id="upg-zB-nZD"/>
                 <outlet property="taglineLabel" destination="6ZD-eY-ROZ" id="3V6-Ex-WN3"/>
                 <outlet property="yearLabel" destination="F0E-6f-JqU" id="rx1-QZ-XEr"/>
-                <outletCollection property="titleLabels" destination="Bge-dj-86t" collectionClass="NSMutableArray" id="H6u-Cb-dj5"/>
-                <outletCollection property="titleLabels" destination="WQy-jU-Bzq" collectionClass="NSMutableArray" id="0Og-gT-8eS"/>
-                <outletCollection property="titleLabels" destination="4PP-aw-fze" collectionClass="NSMutableArray" id="2bx-h7-PAf"/>
-                <outletCollection property="titleLabels" destination="BmB-yk-qYO" collectionClass="NSMutableArray" id="QNO-6h-BoP"/>
-                <outletCollection property="metaDataLabels" destination="F0E-6f-JqU" collectionClass="NSMutableArray" id="wGN-l7-Z0X"/>
-                <outletCollection property="metaDataLabels" destination="3Hy-C0-GIv" collectionClass="NSMutableArray" id="Vuy-mb-tX2"/>
-                <outletCollection property="metaDataLabels" destination="pPC-Ke-TaW" collectionClass="NSMutableArray" id="gy9-Tu-Fqp"/>
-                <outletCollection property="metaDataLabels" destination="LJJ-BA-PKy" collectionClass="NSMutableArray" id="4O1-gt-Pdv"/>
-                <outletCollection property="metaDataLabels" destination="BmB-yk-qYO" collectionClass="NSMutableArray" id="2DA-oE-ijG"/>
-                <outletCollection property="metaDataLabels" destination="4PP-aw-fze" collectionClass="NSMutableArray" id="9Zm-P3-djb"/>
-                <outletCollection property="metaDataLabels" destination="WQy-jU-Bzq" collectionClass="NSMutableArray" id="zA4-pX-64j"/>
-                <outletCollection property="metaDataLabels" destination="Bge-dj-86t" collectionClass="NSMutableArray" id="BjW-zq-hP6"/>
+                <outletCollection property="titleLabels" destination="Bge-dj-86t" collectionClass="NSMutableArray" id="bCK-aF-gWh"/>
+                <outletCollection property="titleLabels" destination="WQy-jU-Bzq" collectionClass="NSMutableArray" id="RAr-w8-oRE"/>
+                <outletCollection property="titleLabels" destination="BmB-yk-qYO" collectionClass="NSMutableArray" id="wiV-tf-Vhg"/>
+                <outletCollection property="titleLabels" destination="4PP-aw-fze" collectionClass="NSMutableArray" id="3le-8u-ZSU"/>
+                <outletCollection property="metaDataLabels" destination="F0E-6f-JqU" collectionClass="NSMutableArray" id="J91-Am-4AV"/>
+                <outletCollection property="metaDataLabels" destination="3Hy-C0-GIv" collectionClass="NSMutableArray" id="SkI-Pg-nee"/>
+                <outletCollection property="metaDataLabels" destination="pPC-Ke-TaW" collectionClass="NSMutableArray" id="rcc-Pb-w6i"/>
+                <outletCollection property="metaDataLabels" destination="LJJ-BA-PKy" collectionClass="NSMutableArray" id="72a-Sr-2zE"/>
             </connections>
             <point key="canvasLocation" x="455" y="276"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
