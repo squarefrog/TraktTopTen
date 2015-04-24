@@ -22,8 +22,8 @@ class CollectionViewDataSourceTests: XCTestCase {
             collectionViewLayout: UICollectionViewFlowLayout())
         
         dataSource = CollectionViewDataSource(collectionView: collectionView!)
-        let items = mockMovieArray()
-        dataSource.updateData(mockMovieArray())
+        let items = mockMediaItemArray()
+        dataSource.updateData(mockMediaItemArray())
     }
     
     func testNumberOfSectionsInCollectionView() {
@@ -48,10 +48,10 @@ class CollectionViewDataSourceTests: XCTestCase {
     }
     
     // MARK: - Test Helper Functions
-    func mockMovieArray() -> [Movie] {
-        let movieA = Movie(title: "Title", year: 1980, slug: "", banner: "")
-        let movieB = Movie(title: "", year: 1980, slug: "", banner: "")
-        return [movieA, movieB]
+    func mockMediaItemArray() -> [MediaItem] {
+        let itemA = MediaItem(title: "Title", year: 1980, slug: "", banner: "")
+        let itemB = MediaItem(title: "", year: 1980, slug: "", banner: "")
+        return [itemA, itemB]
     }
 
 }

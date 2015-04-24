@@ -14,7 +14,7 @@ class MediaItemTests: XCTestCase {
     let mediaItem = MediaItem(title: "Bacon",
         year: 1980, slug: "bacon", banner: "bacon-movie.jpg")
     
-    func testMovieCanBeInitialised() {
+    func testMediaItemCanBeInitialised() {
         XCTAssertNotNil(mediaItem, "MediaItem should not be nil")
         XCTAssert(mediaItem.title == "Bacon", "MediaItem title not set");
         XCTAssert(mediaItem.year == 1980, "MediaItem year not set");
