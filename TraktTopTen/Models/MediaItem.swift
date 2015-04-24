@@ -14,6 +14,10 @@ class MediaItem {
     let slug: String
     let banner: String
     
+    var runtime: Int?
+    var genres: [String]?
+    var rating: Int?
+    
     init(title: String, year: Int, slug: String, banner: String) {
         self.title = title
         self.year = year
