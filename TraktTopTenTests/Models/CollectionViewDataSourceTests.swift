@@ -49,9 +49,8 @@ class CollectionViewDataSourceTests: XCTestCase {
     
     // MARK: - Test Helper Functions
     func mockMediaItemArray() -> [MediaItem] {
-        let itemA = MediaItem(title: "Title", year: 1980, slug: "", banner: "")
-        let itemB = MediaItem(title: "", year: 1980, slug: "", banner: "")
-        return [itemA, itemB]
+        let item = MediaItem()
+        return [item, item]
     }
 
 }
