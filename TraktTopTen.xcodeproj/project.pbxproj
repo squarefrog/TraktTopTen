@@ -16,6 +16,8 @@
 		0E34608E1AD18E83003A0D06 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E34608D1AD18E83003A0D06 /* MediaItem.swift */; };
 		0E34608F1AD18F11003A0D06 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E34608D1AD18E83003A0D06 /* MediaItem.swift */; };
 		0E37CB6C1AD1AA53009543EA /* MediaItemFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E37CB6B1AD1AA53009543EA /* MediaItemFactoryTests.swift */; };
+		0E3E7F191AEBCC380046D6EE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3E7F181AEBCC380046D6EE /* DetailViewController.swift */; };
+		0E3E7F1B1AEBCC420046D6EE /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3E7F1A1AEBCC420046D6EE /* DetailViewControllerTests.swift */; };
 		0E403FF41AD469420085DAD5 /* popular-movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E403FF31AD469420085DAD5 /* popular-movies.json */; };
 		0E435FA11AD1990900383B50 /* MediaItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E435FA01AD1990900383B50 /* MediaItemFactory.swift */; };
 		0E606C031AD19192007C93BE /* MediaItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E606C021AD19192007C93BE /* MediaItemTests.swift */; };
@@ -72,6 +74,8 @@
 		0E34607C1AD07010003A0D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E34608D1AD18E83003A0D06 /* MediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
 		0E37CB6B1AD1AA53009543EA /* MediaItemFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItemFactoryTests.swift; sourceTree = "<group>"; };
+		0E3E7F181AEBCC380046D6EE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0E3E7F1A1AEBCC420046D6EE /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
 		0E403FF31AD469420085DAD5 /* popular-movies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "popular-movies.json"; sourceTree = "<group>"; };
 		0E435FA01AD1990900383B50 /* MediaItemFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItemFactory.swift; sourceTree = "<group>"; };
 		0E606C021AD19192007C93BE /* MediaItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItemTests.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				0EC8678D1AD28B8A00BAC0CC /* CollectionViewDelegateFlowLayout.swift */,
+				0E3E7F181AEBCC380046D6EE /* DetailViewController.swift */,
 				0E3460691AD07010003A0D06 /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -280,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				0EC867901AD28FB400BAC0CC /* CollectionViewDelegateFlowLayoutTests.swift */,
+				0E3E7F1A1AEBCC420046D6EE /* DetailViewControllerTests.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -548,6 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E3E7F191AEBCC380046D6EE /* DetailViewController.swift in Sources */,
 				0E435FA11AD1990900383B50 /* MediaItemFactory.swift in Sources */,
 				0E34606A1AD07010003A0D06 /* ViewController.swift in Sources */,
 				0ED0A2A01AE6E0000041AB73 /* SynopsisBackgroundView.swift in Sources */,
@@ -577,6 +584,7 @@
 				0EC8678C1AD1C2B500BAC0CC /* CollectionViewDataSource.swift in Sources */,
 				0EC867951AD29E2400BAC0CC /* MediaItemCell.swift in Sources */,
 				0EF927731AE3D41300E6D3DF /* FBSnapshotTestCase.m in Sources */,
+				0E3E7F1B1AEBCC420046D6EE /* DetailViewControllerTests.swift in Sources */,
 				0EC867921AD2907400BAC0CC /* CollectionViewDelegateFlowLayout.swift in Sources */,
 				0E37CB6C1AD1AA53009543EA /* MediaItemFactoryTests.swift in Sources */,
 				0EC867871AD1AC6B00BAC0CC /* MediaItemFactory.swift in Sources */,

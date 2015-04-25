@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fpb-Jq-eOX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fpb-Jq-eOX">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -87,6 +87,7 @@
                                             <outlet property="imageView" destination="hVl-NV-pUu" id="V2f-DM-jCU"/>
                                             <outlet property="labelBackgroundView" destination="xTd-gU-4JG" id="tAj-ZM-5MK"/>
                                             <outlet property="textLabel" destination="y1m-2f-4gs" id="BBB-Nf-Pen"/>
+                                            <segue destination="oMA-2w-LWO" kind="show" identifier="ShowDetails" id="DQM-0X-8tQ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -100,7 +101,9 @@
                             <constraint firstAttribute="bottom" secondItem="kFt-lc-7WP" secondAttribute="bottom" id="eJe-Rg-qoP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="KG8-0P-1x2"/>
+                    <navigationItem key="navigationItem" id="KG8-0P-1x2">
+                        <barButtonItem key="backBarButtonItem" title=" " id="tiF-ot-Ghq"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="kFt-lc-7WP" id="arj-99-FCw"/>
                     </connections>
@@ -108,6 +111,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1086" y="1039"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="ByH-gg-XcQ">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="oMA-2w-LWO" customClass="DetailViewController" customModule="TraktTopTen" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aWl-Jp-HKc"/>
+                        <viewControllerLayoutGuide type="bottom" id="AN4-Jc-6xf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vXv-KN-yco">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rzS-j9-lad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1817" y="1039"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7BM-ae-ZR4">

@@ -83,5 +83,15 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let indexPath = collectionView.indexPathsForSelectedItems()[0] as! NSIndexPath
+        if let mediaItem = dataSource?.mediaItemForIndexPath(indexPath) {
+            
+            let viewController = segue.destinationViewController as! DetailViewController
+            viewController.mediaItem = mediaItem
+            
+        }
+    }
 }
 

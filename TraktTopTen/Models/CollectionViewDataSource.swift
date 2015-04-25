@@ -47,4 +47,8 @@ class CollectionViewDataSource : NSObject, UICollectionViewDataSource {
         return cell
     }
     
+    func mediaItemForIndexPath(indexPath: NSIndexPath) -> MediaItem {
+        return items[indexPath.item]
+    }
+    
 }
