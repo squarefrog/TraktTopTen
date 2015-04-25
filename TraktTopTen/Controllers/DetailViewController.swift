@@ -14,50 +14,33 @@ class DetailViewController: UIViewController {
     var detailView: MediaItemsDetailsView!
     var mediaItem: MediaItem?
     var imageView: UIImageView
+    var headerImageView: UIImageView
     
     required init(coder aDecoder: NSCoder) {
         imageView = UIImageView()
+        headerImageView = UIImageView()
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         
-        addImageView()
         self.view.backgroundColor = UIColor.applicationBackgroundColour()
+        
+        addImageView()
+        setupHeaderImageView()
         
         detailView = NSBundle.mainBundle().loadNibNamed("MediaItemDetailsView", owner: self, options: nil)[0] as? MediaItemsDetailsView
         detailView.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.scrollView.addSubview(detailView)
         
-        let views = ["v": detailView]
-        let horizontalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("|[v]|",
-            options: NSLayoutFormatOptions(0),
-            metrics: nil,
-            views: views)
-        
-        let verticalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("V:|[v]|",
-            options: NSLayoutFormatOptions(0),
-            metrics: nil,
-            views: views)
-        
-        let widthConstraint = NSLayoutConstraint(
-            item: detailView,
-            attribute: NSLayoutAttribute.Width,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: self.view,
-            attribute: NSLayoutAttribute.Width,
-            multiplier: 1.0,
-            constant: 0)
-        
-        self.scrollView.addConstraints(horizontalConstraints + verticalConstraints)
-        self.view.addConstraint(widthConstraint)
+        addLayoutConstraints()
         
         populateData()
     }
     
     func addImageView() {
         imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.view.insertSubview(imageView, belowSubview: scrollView)
+        scrollView.addSubview(imageView)
         
         let views = ["v": imageView]
         let hConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat(
@@ -78,6 +61,11 @@ class DetailViewController: UIViewController {
         self.view.layoutIfNeeded()
     }
     
+    func setupHeaderImageView() {
+        headerImageView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        scrollView.addSubview(headerImageView)
+    }
+    
     func populateData() {
         if let mediaItem = mediaItem {
             self.title = mediaItem.title
@@ -87,10 +75,62 @@ class DetailViewController: UIViewController {
             detailView.runtimeLabel.text = "\(mediaItem.runtime) mins"
             detailView.genresLabel.text = "\(mediaItem.genres)"
             detailView.ratingLabel.text = "\(mediaItem.ratingPercent)%"
+            
             if let url = NSURL(string: mediaItem.poster) {
                 imageView.hnk_setImageFromURL(url)
             }
+            
+            if let url = NSURL(string: mediaItem.fanart) {
+                headerImageView.hnk_setImageFromURL(url)
+            }
         }
+    }
+    
+    func addLayoutConstraints() {
+        let views = ["v": detailView, "h": headerImageView]
+        
+        let headerHorizontalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("H:|[h]|",
+            options: NSLayoutFormatOptions(0),
+            metrics: nil,
+            views: views)
+        
+        let headerHeight = NSLayoutConstraint(
+            item: headerImageView,
+            attribute: NSLayoutAttribute.Height,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem: scrollView,
+            attribute: NSLayoutAttribute.Width,
+            multiplier: 0.5625,
+            constant: 0)
+        
+        let horizontalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("H:|[v]|",
+            options: NSLayoutFormatOptions(0),
+            metrics: nil,
+            views: views)
+        
+        let verticalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("V:|[h][v]|",
+            options: NSLayoutFormatOptions(0),
+            metrics: nil,
+            views: views)
+        
+        let widthConstraint = NSLayoutConstraint(
+            item: detailView,
+            attribute: NSLayoutAttribute.Width,
+            relatedBy: NSLayoutRelation.Equal,
+            toItem: self.view,
+            attribute: NSLayoutAttribute.Width,
+            multiplier: 1.0,
+            constant: 0)
+        
+        var scrollViewConstraints = horizontalConstraints
+        scrollViewConstraints.extend(verticalConstraints)
+        scrollViewConstraints.extend(headerHorizontalConstraints)
+        scrollViewConstraints.append(headerHeight)
+        
+        self.scrollView.addConstraints(scrollViewConstraints)
+        
+        self.view.addConstraint(widthConstraint)
+        self.view.layoutIfNeeded()
     }
     
 }
