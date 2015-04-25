@@ -13,83 +13,66 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     var detailView: MediaItemsDetailsView!
     var mediaItem: MediaItem?
-    var imageView: UIImageView
+    var backgroundImageView: UIImageView
     var headerImageView: UIImageView
     
     required init(coder aDecoder: NSCoder) {
-        imageView = UIImageView()
+        backgroundImageView = UIImageView()
         headerImageView = UIImageView()
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
-        
         self.view.backgroundColor = UIColor.applicationBackgroundColour()
         
-        addImageView()
+        setupBackgroundImageView()
         setupHeaderImageView()
-        
-        detailView = NSBundle.mainBundle().loadNibNamed("MediaItemDetailsView", owner: self, options: nil)[0] as? MediaItemsDetailsView
-        detailView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.scrollView.addSubview(detailView)
-        
+        setupDetailView()
         addLayoutConstraints()
-        
         populateData()
     }
     
-    func addImageView() {
-        imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        scrollView.addSubview(imageView)
+    private func addToScrollView(view: UIView) {
+        view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        scrollView.addSubview(view)
+    }
+    
+    private func setupBackgroundImageView() {
+        addToScrollView(backgroundImageView)
         
-        let views = ["v": imageView]
-        let hConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat(
-            "|[v]|",
+        let views = ["v": backgroundImageView]
+        let horizontal:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|[v]|",
             options: NSLayoutFormatOptions(0),
             metrics: nil,
             views: views)
         
-        let vConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat(
+        let vertical:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|[v]|",
             options: NSLayoutFormatOptions(0),
             metrics: nil,
             views: views)
         
-        self.view.addConstraints(hConstraints)
-        self.view.addConstraints(vConstraints)
+        self.view.addConstraints(horizontal + vertical)
+    }
+    
+    private func setupHeaderImageView() {
+        headerImageView.backgroundColor = UIColor.applicationBackgroundColour()
+        addToScrollView(headerImageView)
+    }
+    
+    private func setupDetailView() {
+        detailView = NSBundle.mainBundle().loadNibNamed("MediaItemDetailsView",
+            owner: self, options: nil)[0] as? MediaItemsDetailsView
+        addToScrollView(detailView)
+    }
+    
+    private func addLayoutConstraints() {
+        let views = ["dv": detailView, "hdr": headerImageView]
         
-        self.view.layoutIfNeeded()
-    }
-    
-    func setupHeaderImageView() {
-        headerImageView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        scrollView.addSubview(headerImageView)
-    }
-    
-    func populateData() {
-        if let mediaItem = mediaItem {
-            self.title = mediaItem.title
-            detailView.taglineLabel.text = mediaItem.tagline
-            detailView.synopsisLabel.text = mediaItem.summary
-            detailView.yearLabel.text = "\(mediaItem.year)"
-            detailView.runtimeLabel.text = "\(mediaItem.runtime) mins"
-            detailView.genresLabel.text = "\(mediaItem.genres)"
-            detailView.ratingLabel.text = "\(mediaItem.ratingPercent)%"
-            
-            if let url = NSURL(string: mediaItem.poster) {
-                imageView.hnk_setImageFromURL(url)
-            }
-            
-            if let url = NSURL(string: mediaItem.fanart) {
-                headerImageView.hnk_setImageFromURL(url)
-            }
-        }
-    }
-    
-    func addLayoutConstraints() {
-        let views = ["v": detailView, "h": headerImageView]
-        
-        let headerHorizontalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("H:|[h]|",
+        let headerHorizontalConstraints =
+        NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|[hdr]|",
             options: NSLayoutFormatOptions(0),
             metrics: nil,
             views: views)
@@ -103,12 +86,16 @@ class DetailViewController: UIViewController {
             multiplier: 0.5625,
             constant: 0)
         
-        let horizontalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("H:|[v]|",
+        let horizontalConstraints =
+        NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|[dv]|",
             options: NSLayoutFormatOptions(0),
             metrics: nil,
             views: views)
         
-        let verticalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("V:|[h][v]|",
+        let verticalConstraints =
+        NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:|[hdr][dv]|",
             options: NSLayoutFormatOptions(0),
             metrics: nil,
             views: views)
@@ -128,9 +115,29 @@ class DetailViewController: UIViewController {
         scrollViewConstraints.append(headerHeight)
         
         self.scrollView.addConstraints(scrollViewConstraints)
-        
         self.view.addConstraint(widthConstraint)
+        
         self.view.layoutIfNeeded()
+    }
+    
+    private func populateData() {
+        if let mediaItem = mediaItem {
+            self.title = mediaItem.title
+            detailView.taglineLabel.text = mediaItem.tagline
+            detailView.synopsisLabel.text = mediaItem.summary
+            detailView.yearLabel.text = "\(mediaItem.year)"
+            detailView.runtimeLabel.text = "\(mediaItem.runtime) mins"
+            detailView.genresLabel.text = "\(mediaItem.genres)"
+            detailView.ratingLabel.text = "\(mediaItem.ratingPercent)%"
+            
+            if let url = NSURL(string: mediaItem.poster) {
+                backgroundImageView.hnk_setImageFromURL(url)
+            }
+            
+            if let url = NSURL(string: mediaItem.fanart) {
+                headerImageView.hnk_setImageFromURL(url)
+            }
+        }
     }
     
 }
