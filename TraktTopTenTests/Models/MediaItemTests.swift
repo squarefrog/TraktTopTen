@@ -22,9 +22,9 @@ class MediaItemTests: XCTestCase {
         XCTAssert(item.ratingPercent == 93, "MediaItem rating not set");
         XCTAssert(item.tagline == "Stubbed tagline", "MediaItem tagline not set");
         XCTAssert(item.summary == "Stubbed overview", "MediaItem summary not set");
-        XCTAssert(item.banner == "https://walter.trakt.us/banner_full.jpg", "MediaItem banner url not set");
-        XCTAssert(item.fanart == "https://walter.trakt.us/fanart_thumb.jpg", "MediaItem fanart url not set");
-        XCTAssert(item.poster == "https://walter.trakt.us/poster_thumb.jpg", "MediaItem thumb url not set");
+        XCTAssert(item.banner?.absoluteString == "https://walter.trakt.us/banner_full.jpg", "MediaItem banner url not set");
+        XCTAssert(item.fanart?.absoluteString == "https://walter.trakt.us/fanart_thumb.jpg", "MediaItem fanart url not set");
+        XCTAssert(item.poster?.absoluteString == "https://walter.trakt.us/poster_thumb.jpg", "MediaItem thumb url not set");
     }
     
     func loadSampleData() -> JSON {

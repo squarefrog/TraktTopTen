@@ -36,11 +36,7 @@ class CollectionViewDataSource : NSObject, UICollectionViewDataSource {
         let movie = self.items[indexPath.row]
         cell.textLabel.text = "\(movie.title)"
         
-        if movie.banner.isEmpty {
-            return cell
-        }
-        
-        if let url = NSURL(string: movie.banner) {
+        if let url = movie.banner {
             cell.imageView.hnk_setImageFromURL(url)
         }
         

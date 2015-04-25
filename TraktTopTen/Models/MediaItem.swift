@@ -13,9 +13,9 @@ class MediaItem {
     var title: String
     var year: Int
     var slug: String
-    var banner: String
-    var fanart: String
-    var poster: String
+    var banner: NSURL?
+    var fanart: NSURL?
+    var poster: NSURL?
     
     var runtime: Int
     var tagline: String
@@ -39,9 +39,6 @@ class MediaItem {
         self.title = ""
         self.year = 0
         self.slug = ""
-        self.banner = ""
-        self.fanart = ""
-        self.poster = ""
         self.runtime = 0
         self.genreList = []
         self.rating = 0.0
@@ -60,9 +57,14 @@ class MediaItem {
         summary = json["overview"].stringValue
         rating = json["rating"].floatValue
         
-        banner = json["images"]["banner"]["full"].stringValue
-        fanart = json["images"]["fanart"]["thumb"].stringValue
-        poster = json["images"]["poster"]["thumb"].stringValue
+        let bannerURL = json["images"]["banner"]["full"].stringValue
+        banner = NSURL(string: bannerURL)
+        
+        let fanartURL = json["images"]["fanart"]["thumb"].stringValue
+        fanart = NSURL(string: fanartURL)
+        
+        let posterURL = json["images"]["poster"]["thumb"].stringValue
+        poster = NSURL(string: posterURL)
         
         for (index: String, genre: JSON) in json["genres"] {
             genreList.append(genre.stringValue.capitalizedString)

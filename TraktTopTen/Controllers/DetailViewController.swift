@@ -129,14 +129,8 @@ class DetailViewController: UIViewController {
             detailView.runtimeLabel.text = "\(mediaItem.runtime) mins"
             detailView.genresLabel.text = "\(mediaItem.genres)"
             detailView.ratingLabel.text = "\(mediaItem.ratingPercent)%"
-            
-            if let url = NSURL(string: mediaItem.poster) {
-                backgroundImageView.hnk_setImageFromURL(url)
-            }
-            
-            if let url = NSURL(string: mediaItem.fanart) {
-                headerImageView.hnk_setImageFromURL(url)
-            }
+            backgroundImageView.hnk_setImageFromURL(mediaItem.poster)
+            headerImageView.hnk_setImageFromURL(mediaItem.fanart)
         }
     }
     
