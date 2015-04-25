@@ -18,7 +18,7 @@ class MediaItemTests: XCTestCase {
         XCTAssert(item.year == 1994, "MediaItem year not set");
         XCTAssert(item.slug == "the-shawshank-redemption-1994", "MediaItem slug not set");
         XCTAssert(item.runtime == 142, "MediaItem run time not set");
-        XCTAssert(item.genres == ["crime", "drama"], "MediaItem genres not set")
+        XCTAssert(item.genres == "Crime, Drama", "MediaItem genres not set")
         XCTAssert(item.ratingPercent == 93, "MediaItem rating not set");
         XCTAssert(item.tagline == "Stubbed tagline", "MediaItem tagline not set");
         XCTAssert(item.summary == "Stubbed overview", "MediaItem summary not set");

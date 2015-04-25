@@ -18,7 +18,6 @@ class MediaItem {
     var poster: String
     
     var runtime: Int
-    var genres: [String]
     var tagline: String
     var summary: String
     
@@ -26,6 +25,13 @@ class MediaItem {
     var ratingPercent: Int {
         get {
             return Int(rating * 10)
+        }
+    }
+    
+    private var genreList: [String]
+    var genres: String {
+        get {
+            return join(", ", genreList)
         }
     }
     
@@ -37,7 +43,7 @@ class MediaItem {
         self.fanart = ""
         self.poster = ""
         self.runtime = 0
-        self.genres = []
+        self.genreList = []
         self.rating = 0.0
         self.tagline = ""
         self.summary = ""
@@ -59,7 +65,7 @@ class MediaItem {
         poster = json["images"]["poster"]["thumb"].stringValue
         
         for (index: String, genre: JSON) in json["genres"] {
-            genres.append(genre.stringValue)
+            genreList.append(genre.stringValue.capitalizedString)
         }
     }
     
