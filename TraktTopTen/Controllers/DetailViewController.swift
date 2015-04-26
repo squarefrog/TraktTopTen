@@ -8,13 +8,15 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     var detailView: MediaItemsDetailsView!
     var mediaItem: MediaItem?
     var backgroundImageView: UIImageView
     var headerImageView: UIImageView
+    
+    var headerHeight = 0.0
     
     required init(coder aDecoder: NSCoder) {
         backgroundImageView = UIImageView()
@@ -25,10 +27,25 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.applicationBackgroundColour()
         
+        scrollView.delegate = self;
         setupBackgroundImageView()
         setupHeaderImageView()
         setupDetailView()
         addLayoutConstraints()
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let width = Double(CGRectGetWidth(self.view.bounds))
+        headerHeight = width * 0.5625
+        
+        scrollView.contentOffset = CGPoint(x: 0, y: -headerHeight)
+        var insets = scrollView.contentInset
+        insets.top = CGFloat(headerHeight)
+        scrollView.contentInset = insets
+        
+        headerImageView.frame = CGRect(x: 0, y: 0, width: width, height: -headerHeight)
+        
         populateData()
     }
     
@@ -58,7 +75,8 @@ class DetailViewController: UIViewController {
     
     private func setupHeaderImageView() {
         headerImageView.backgroundColor = UIColor.applicationBackgroundColour()
-        addToScrollView(headerImageView)
+        scrollView.insertSubview(headerImageView, belowSubview: backgroundImageView)
+        headerImageView.contentMode = .ScaleAspectFill
     }
     
     private func setupDetailView() {
@@ -68,23 +86,7 @@ class DetailViewController: UIViewController {
     }
     
     private func addLayoutConstraints() {
-        let views = ["dv": detailView, "hdr": headerImageView]
-        
-        let headerHorizontalConstraints =
-        NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:|[hdr]|",
-            options: NSLayoutFormatOptions(0),
-            metrics: nil,
-            views: views)
-        
-        let headerHeight = NSLayoutConstraint(
-            item: headerImageView,
-            attribute: NSLayoutAttribute.Height,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: scrollView,
-            attribute: NSLayoutAttribute.Width,
-            multiplier: 0.5625,
-            constant: 0)
+        let views = ["dv": detailView]
         
         let horizontalConstraints =
         NSLayoutConstraint.constraintsWithVisualFormat(
@@ -95,7 +97,7 @@ class DetailViewController: UIViewController {
         
         let verticalConstraints =
         NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|[hdr][dv]|",
+            "V:|[dv]|",
             options: NSLayoutFormatOptions(0),
             metrics: nil,
             views: views)
@@ -111,8 +113,6 @@ class DetailViewController: UIViewController {
         
         var scrollViewConstraints = horizontalConstraints
         scrollViewConstraints.extend(verticalConstraints)
-        scrollViewConstraints.extend(headerHorizontalConstraints)
-        scrollViewConstraints.append(headerHeight)
         
         self.scrollView.addConstraints(scrollViewConstraints)
         self.view.addConstraint(widthConstraint)
@@ -134,4 +134,13 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let y = scrollView.contentOffset.y
+        let height: CGFloat = y * -1
+        
+        if y < 0 {
+            var frame = headerImageView.frame
+            headerImageView.frame = CGRect(x: 0, y: y, width: frame.width, height: height)
+        }
+    }
 }
