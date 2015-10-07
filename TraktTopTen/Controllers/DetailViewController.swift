@@ -18,7 +18,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     var headerHeight = 0.0
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         backgroundImageView = UIImageView()
         headerImageView = UIImageView()
         super.init(coder: aDecoder)
@@ -50,7 +50,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func addToScrollView(view: UIView) {
-        view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
     }
     
@@ -58,15 +58,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         addToScrollView(backgroundImageView)
         
         let views = ["v": backgroundImageView]
-        let horizontal:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat(
+        let horizontal:[NSLayoutConstraint]! = NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|[v]|",
-            options: NSLayoutFormatOptions(0),
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: views)
         
-        let vertical:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat(
+        let vertical:[NSLayoutConstraint]! = NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|[v]|",
-            options: NSLayoutFormatOptions(0),
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: views)
         
@@ -91,14 +91,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let horizontalConstraints =
         NSLayoutConstraint.constraintsWithVisualFormat(
             "H:|[dv]|",
-            options: NSLayoutFormatOptions(0),
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: views)
         
         let verticalConstraints =
         NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|[dv]|",
-            options: NSLayoutFormatOptions(0),
+            options: NSLayoutFormatOptions(rawValue: 0),
             metrics: nil,
             views: views)
         
@@ -112,7 +112,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             constant: 0)
         
         var scrollViewConstraints = horizontalConstraints
-        scrollViewConstraints.extend(verticalConstraints)
+        scrollViewConstraints.appendContentsOf(verticalConstraints)
         
         self.scrollView.addConstraints(scrollViewConstraints)
         self.view.addConstraint(widthConstraint)
@@ -139,7 +139,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let height: CGFloat = y * -1
         
         if y < 0 {
-            var frame = headerImageView.frame
+            let frame = headerImageView.frame
             headerImageView.frame = CGRect(x: 0, y: y, width: frame.width, height: height)
         }
     }

@@ -31,7 +31,7 @@ class MediaItem {
     private var genreList: [String]
     var genres: String {
         get {
-            return join(", ", genreList)
+            return genreList.joinWithSeparator(", ")
         }
     }
     
@@ -66,7 +66,7 @@ class MediaItem {
         let posterURL = json["images"]["poster"]["thumb"].stringValue
         poster = NSURL(string: posterURL)
         
-        for (index: String, genre: JSON) in json["genres"] {
+        for (_, genre): (String, JSON) in json["genres"] {
             genreList.append(genre.stringValue.capitalizedString)
         }
     }

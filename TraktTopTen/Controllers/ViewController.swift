@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         activityIndicator?.startAnimating()
         activityIndicator?.color = UIColor.applicationLightGrayColour()
-        activityIndicator?.setTranslatesAutoresizingMaskIntoConstraints(false)
+        activityIndicator?.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(activityIndicator!)
         
         let centerX = NSLayoutConstraint(
@@ -64,8 +64,6 @@ class ViewController: UIViewController {
     }
     
     func fetchAndDisplayTopMovies() {
-        var data: NSData?
-        var errorString: String?
         let application = UIApplication.sharedApplication()
         application.networkActivityIndicatorVisible = true
         
@@ -78,14 +76,16 @@ class ViewController: UIViewController {
                     self.dataSource?.updateData(array)
                     self.activityIndicator?.removeFromSuperview()
                 } else if let error = errorString {
-                    println("\(error)")
+                    print("\(error)")
                 }
             }
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let indexPath = collectionView.indexPathsForSelectedItems()[0] as! NSIndexPath
+        guard let indexPath = collectionView.indexPathsForSelectedItems()?.first else {
+            return
+        }
         if let mediaItem = dataSource?.mediaItemForIndexPath(indexPath) {
             
             let viewController = segue.destinationViewController as! DetailViewController
