@@ -20,12 +20,12 @@ class TraktAPIManager {
         
         let url = NSURL(string: URLString)!
         let request = topMoviesURLRequest(url)
-        var task = session.dataTaskWithRequest(request) {
+        let task = session.dataTaskWithRequest(request) {
             (data, response, error) -> Void in
-            let httpResponse = response as! NSHTTPURLResponse
+            let httpResponse = response as? NSHTTPURLResponse
             
             if error != nil {
-                callback(nil, "Error \(httpResponse): \(error.localizedDescription)")
+                callback(nil, "Error \(httpResponse): \(error!.localizedDescription)")
             } else {
                 callback(data, nil)
             }
@@ -34,7 +34,7 @@ class TraktAPIManager {
     }
     
     func topMoviesURLRequest(url: NSURL) -> NSMutableURLRequest {
-        var request = NSMutableURLRequest(URL: url)
+        let request = NSMutableURLRequest(URL: url)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("2", forHTTPHeaderField: "trakt-api-version")
         request.addValue(TraktAPIKey, forHTTPHeaderField: "trakt-api-key")

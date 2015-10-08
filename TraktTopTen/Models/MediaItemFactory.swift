@@ -15,8 +15,8 @@ class MediaItemFactory {
         var mediaItems: [MediaItem] = []
         let json = JSON(data:data)
         
-        for (index: String, subJson: JSON) in json {
-            var item = MediaItem(json: subJson)
+        for (_, subJson): (String, JSON) in json {
+            let item = MediaItem(json: subJson)
             mediaItems.append(item)
         }
         

@@ -18,7 +18,7 @@ class MediaItemDetailViewTests: FBSnapshotTestCase {
     func testViewLooksCorrect() {
         if let view = NSBundle.mainBundle().loadNibNamed("MediaItemDetailsView", owner: self, options: nil)[0] as? UIView {
             
-            view.setTranslatesAutoresizingMaskIntoConstraints(false)
+            view.translatesAutoresizingMaskIntoConstraints = false
             
             let parentView = UIView(frame: CGRect(x: 0, y: 0, width: 375, height: 667))
             let bundle = NSBundle(forClass: MediaItemDetailViewTests.self)

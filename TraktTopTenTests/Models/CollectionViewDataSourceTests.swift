@@ -22,7 +22,6 @@ class CollectionViewDataSourceTests: XCTestCase {
             collectionViewLayout: UICollectionViewFlowLayout())
         
         dataSource = CollectionViewDataSource(collectionView: collectionView!)
-        let items = mockMediaItemArray()
         dataSource.updateData(mockMediaItemArray())
     }
     
