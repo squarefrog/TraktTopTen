@@ -1,13 +1,20 @@
 PODS:
   - Haneke (1.0.1)
+  - Keys (1.0.0)
   - SwiftyJSON (2.3.0)
 
 DEPENDENCIES:
   - Haneke (~> 1.0.1)
+  - Keys (from `Pods/CocoaPodsKeys`)
   - SwiftyJSON (~> 2.3)
+
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
   Haneke: d60be8b96b228633b24708dd153169d6849d6f78
+  Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
 
 COCOAPODS: 0.38.2

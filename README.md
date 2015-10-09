@@ -14,6 +14,10 @@ Clone the repo:
 
 Install dependencies (requires [CocoaPods](https://cocoapods.org))
 
-    $ cd TraktTopTen && pod install
+    $ cd TraktTopTen
+    $ [sudo] bundle install
+    $ pod install
+
+You will be prompted to enter your Trakt API key. **Note:** Trakt no longer issues application API keys, so unless you have an old API key, this project will be useless without implementing `OAuth`, which frankly is a lot of hassle for a simple demo project.
 
 Then open up the TraktTopTen.xcworkspace.
